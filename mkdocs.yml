@@ -1,0 +1,13 @@
+site_name: Coding In Blind
+site_url: https://joeldodson.github.io/codinginblind
+repo_url: https://github.com/joeldodson/codinginblind
+repo_name: Coding In Blind on GitHub
+site_description: A place for me to host content hopefully useful to other blind software developers 
+site_author: Joel Dodson
+
+nav:
+  - Home: index.md
+  - About: about.md
+
+theme:
+  name: material
