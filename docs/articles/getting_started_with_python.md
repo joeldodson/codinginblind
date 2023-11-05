@@ -9,9 +9,15 @@ It's not (entirely) out of laziness.
 Its more about not wanting links to become stale,
 and I think I'm giving enough detail for others to find resources they trust.
 
+One of the most valuable skills you'll need as a developer these days is finding sites you trust when you have questions.
+I'll avoid getting myself in trouble and simply say 
+there seem to be many sites with very good search engine optimizations (SEO),
+with information that's remarkably similar to other sites,
+but many, many, more adds. 
+
 Think of this article as an introduction with very high level notes.
 If this setup sounds reasonable, 
-it would be good to dig deeper into VS Code, PowerShell, and Virtual Environments on your own. 
+it would be good to dig deeper into VS Code, PowerShell, and Virtual Environments on your own.
 
 ## Operating System - Windows 11
 
@@ -19,7 +25,7 @@ I moved to Windows 11 (from Windows 10)in, I think, early 2013.
 It works well and I tend to install all the updates when they're available.
 I know some people like to get something working and stick with it.
 I can appreciate that point and will not try to convince anyone to do otherwise.
-I personally find staying current helps when I want to try new features with different technologies.
+I personally though find staying current helps when I want to try new features with different technologies.
 
 ### Linux?
 
@@ -31,7 +37,7 @@ I now use WSL2 to run Ubuntu.
 
 There are other options for accessing a Linux environment.
 
-- You can create a Virtual Machine (VM) in a cloud provider (I find 
+- You can create a Virtual Machine (VM) in a cloud provider (    I find 
 [Linode](https://linode.com) to be the most accessible).
 You would then use a Windows SSH client to access your VM.
 
@@ -87,6 +93,11 @@ For example, if you're trying to format your code (alt-shift-f) and don't have a
 VS Code will suggest one for you.
 I suggest starting with only the Python extension (from Microsoft) and go with whatever else VS Code suggests.
 
+If VS Code does suggest an extension and you can't remember what it said,
+go to the status bar (f6) then arrow until you get to "notifications".  
+Hit enter on notifications and you'll find the message regarding the extension.
+From there you can select 'yes' to have the extension installed.
+
 ## Python Interpreter
 
 Continuing the theme of simplicity and broad adoption, I like the defacto-standard cPython interpreter.
@@ -120,6 +131,8 @@ That only works if I have my PATH setup with all versions of Python, which I don
 
 I do however have ``` py.exe ``` on my PATH.
 And because I've installed all my Python versions from python.org, ``` py.exe ``` knows about them all.
+And I think ``` py.exe ``` is only installed from python.org, but not sure.
+That is, if you've installed Python from the Windows Store and don't have ``` py.exe```, that might be why.
 
 I can list all the versions ``` py.exe ``` knows of:
 ``` bash 
@@ -128,7 +141,9 @@ PS C:\Users\joeld> py --list
  -V:3.11          Python 3.11 (64-bit)
  -V:3.10          Python 3.10 (64-bit)
 ```
-And I can run a specific version:
+And I can run a specific version
+(NOTE: the argument ```--version ``` on the command line is to tell the Python interpreter to print its version string.
+It's an easy way to check if your PATH is correct and your interpreter actually runs.):
 ``` bash 
 PS C:\Users\joeld> py -3.11 --version
 Python 3.11.5
@@ -149,7 +164,8 @@ The following commands for creating an development environment are all run from 
 ### Creating the Virtual Environment
 Here is a 
 [great article on virtual environments](https://realpython.com/python-virtual-environments-a-primer/).
-I strongly suggest you read it to understand how Python knows which files to install from where.
+I highly suggest you read it to understand how Python knows which files to install from where.
+(RealPython is one of the Python sites I trust for very good explanations.)
 
 If I want to develop or test something using Python 3.10,
 I'll start by creating a virtual environment (plus some other steps):
@@ -191,6 +207,7 @@ From the command prompt, simply type:
 (3.10project) tmp\py3.10-project> code .
 ```
 That is, ``` code ``` is the program name and ``` . ``` (dot) is the directory to open.
+(The dot (period character) always represents the current directory.)
 The VS Code UI will open ready to edit files in that directory.
 
 ## Tell VS Code which Python to use
@@ -215,11 +232,17 @@ Now you can create your hellow_world.py file in VS Code.
 You can run the file directly in VS Code, and there is a terminal that is accessible.
 I'm not a big fan of that workflow though.
 I like to edit the code then pop back out to my PowerShell to run the code.
-That is, ``` alt+f4 ``` to get back to your PowerShell window, then:
+That is, ``` alt+tab ``` to get back to your PowerShell window, then:
 ``` bash 
 (3.10project) tmp\py3.10-project > python hello_world.py 
 ``` 
 And you should see any output in that window (like we did when creating the virtual environment).
+
+Ken noted you can also use ``` ctrl+shift+c ``` to have VS Code open a command shell using it's current working directory. 
+If you had opened VS Code as described above, that should be the directory with your source code.
+Ken also noted you can change the default shell from ``` cmd ``` to something else, e.g.e, PowerShell. 
+That's done in the settings which can take some getting used to.
+Instead of trying to explain it here, I suggest you bing it. 
 
 ## I Think That's It 
 
@@ -230,3 +253,11 @@ If you have questions, or want more details, please open an issue at the
 Cheers!
 
 Joel 
+
+## Credits
+
+I'll add notes here to give credit to people who help make this better and correct my mistakes.
+
+*  Thanks Ken for pointing out the alt-f4 which should be alt-tab 
+  (already fixed if you don't see any alt-f4 in the text.)
+    And thanks for the ctrl+shift+c shortcut reminder.
