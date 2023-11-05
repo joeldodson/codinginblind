@@ -8,6 +8,8 @@ site_author: Joel Dodson
 nav:
   - Home: index.md
   - About: about.md
+  - Articles:
+    - Getting Started with Python: articles/getting_started_with_python.md
 
 theme:
   name: material
