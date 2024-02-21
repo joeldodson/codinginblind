@@ -10,10 +10,8 @@ Its more about not wanting links to become stale,
 and I think I'm giving enough detail for others to find resources they trust.
 
 One of the most valuable skills you'll need as a developer these days is finding sites you trust when you have questions.
-I'll avoid getting myself in trouble and simply say 
-there seem to be many sites with very good search engine optimizations (SEO),
-with information that's remarkably similar to other sites,
-but many, many, more adds. 
+Be discerning though as some sites have a very poor content to advertisement ratio.
+They seem to be better at optimizing for search engines than generating anything everyone else hasn't already said.
 
 Think of this article as an introduction with very high level notes.
 If this setup sounds reasonable, 
@@ -21,7 +19,7 @@ it would be good to dig deeper into VS Code, PowerShell, and Virtual Environment
 
 ## Operating System - Windows 11
 
-I moved to Windows 11 (from Windows 10)in, I think, early 2013.
+I moved to Windows 11 (from Windows 10)in, I think, early 2023.
 It works well and I tend to install all the updates when they're available.
 I know some people like to get something working and stick with it.
 I can appreciate that point and will not try to convince anyone to do otherwise.
@@ -30,10 +28,10 @@ I personally though find staying current helps when I want to try new features w
 ### Linux?
 
 Yes, you'll almost certainly need to get some experience with Linux if you want to work as a software developer.
-Before losing my sight, I used a Mac mainly because of its Free BSD core.
+Before losing my sight, I used a Mac mainly because of its UNIX core.
 I switched to Windows on the advice of other blind developers when I was focused on having an accessible development environment.
 Fortunately, this was around the time Windows Subsystem for Linux (WSL) was taking off.
-I now use WSL2 to run Ubuntu.
+I now use WSL2 to run Ubuntu and other Linux distributions.
 
 There are other options for accessing a Linux environment.
 
@@ -70,7 +68,7 @@ You might want to start by reading the
 No. [Visual Studio](https://visualstudio.com) 
 is an Integrated Development Environment (IDE).
 VS Code is technically a code editor.
-The details are not that important and I'm not going to go into detail.
+The details are not that important.
 Think of an IDE as batteries included (e.g., compilers and debuggers), 
 where as in a code editor you'll need to install extensions (or plugins, or whatever your editor calls them).
 
@@ -188,7 +186,7 @@ C:\Users\joeld\AppData\Local\Microsoft\WindowsApps\python.exe
 Let's go over what just happened:
 
 1. created a new directory for the project and cd into it 
-1. created a virtual environment using py to specify I want to run python version 3.10
+1. created a virtual environment using ``` py ``` to specify I want to run python version 3.10
     * ``` -m venv ``` is to run the venv module which is now included in the standard cPython distribution 
     * ``` --prompt 3.10project ``` is to specify a prompt for this virtual environment 
     * ``` .venv ``` is to have the virtual environment created in a directory named .venv
@@ -222,9 +220,9 @@ The number of matches is filtered as you type, you probably will not need to typ
 Hit enter and you should get a list of available python environments.
 
 If you launched VS Code from within an activated virtual environment, 
-the python environment from the .venv should already be selected.
+the python interpreter from the .venv environment should already be selected.
 And you can simply hit enter to keep that choice.
-Otherwise, you can arrow up and down to select the appropriate environment. 
+Otherwise, you can arrow up and down to select the appropriate interpreter. 
 
 ## Edit and Run Your Python Files
 

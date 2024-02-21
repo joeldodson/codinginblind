@@ -8,8 +8,29 @@ site_author: Joel Dodson
 nav:
   - Home: index.md
   - About: about.md
-  - Articles:
+  - Articles: 
+    - List of Articles: articles/index.md 
     - Getting Started with Python: articles/getting_started_with_python.md
+    - Python Variable Scope and f12 in VS Code: articles/python_variable_scope_and_f12.md
+    - Using the Command Line: using_command_line.md 
 
 theme:
   name: material
+  features:
+    - content.code.copy                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+## 
+# watch is to tell mkdocs serve extra directories or files to watch for changes 
+#
+watch:
+  - src
+
