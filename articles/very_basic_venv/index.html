@@ -1,0 +1,848 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A place for me to host content hopefully useful to other blind software developers">
+      
+      
+        <meta name="author" content="Joel Dodson">
+      
+      
+        <link rel="canonical" href="https://joeldodson.github.io/codinginblind/articles/very_basic_venv/">
+      
+      
+        <link rel="prev" href="../getting_started_with_python/">
+      
+      
+        <link rel="next" href="../python_variable_scope_and_f12/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.11">
+    
+    
+      
+        <title>Very Basics of Virtual Environments - Coding In Blind</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#very-basics-of-virtual-environments" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Coding In Blind" class="md-header__button md-logo" aria-label="Coding In Blind" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Coding In Blind
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Very Basics of Virtual Environments
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/joeldodson/codinginblind" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Coding In Blind on GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Coding In Blind" class="md-nav__button md-logo" aria-label="Coding In Blind" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Coding In Blind
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/joeldodson/codinginblind" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Coding In Blind on GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Articles
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Articles
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    List of Articles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting_started_with_python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started with Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Very Basics of Virtual Environments
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Very Basics of Virtual Environments
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-should-i-use-a-virtual-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Should I Use a Virtual Environment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-the-virtual-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating the Virtual Environment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating the Virtual Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-that-text-after-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      what is that text after python?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#activate-the-virtual-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Activate the Virtual Environment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Activate the Virtual Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#activating-a-virtual-environment-on-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Activating a Virtual Environment on Windows
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activating-the-virtual-environment-on-linux-and-macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Activating the Virtual Environment on Linux and MacOS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#now-lets-start-vs-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Now Let's Start VS Code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-the-python-interpreter-for-vs-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure the Python Interpreter for VS Code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deactivate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deactivate?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#more-reading-for-more-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      More Reading for More Details
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python_variable_scope_and_f12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python Variable Scope and f12 in VS Code
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using_command_line/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using the Command Line
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-should-i-use-a-virtual-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Should I Use a Virtual Environment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-the-virtual-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating the Virtual Environment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating the Virtual Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-that-text-after-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      what is that text after python?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#activate-the-virtual-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Activate the Virtual Environment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Activate the Virtual Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#activating-a-virtual-environment-on-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Activating a Virtual Environment on Windows
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activating-the-virtual-environment-on-linux-and-macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Activating the Virtual Environment on Linux and MacOS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#now-lets-start-vs-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Now Let's Start VS Code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-the-python-interpreter-for-vs-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure the Python Interpreter for VS Code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deactivate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deactivate?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#more-reading-for-more-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      More Reading for More Details
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="very-basics-of-virtual-environments">Very Basics of Virtual Environments</h1>
+<p>If you've used computers a while (including mobile devices) you've probably run across the advice to remove and reinstall some software.
+Or, at the very least, restart your computer.
+And often this resolves the problem.
+One reason for this is most software is complex and has dependencies across the platform.
+Python is no different.</p>
+<p>Virtual environments are an attempt to minimize this problem with dependencies.
+They can help keep your project safe from others,
+and keep other software on your system safe from your project.
+There are a crazy number of ways to create and manage virtual environments,
+and they can sound intimidating when you start pulling back the curtain.
+You don't need to know many details to get started though.
+You can, and arguably should, use virtual environments from the beginning of your Python journey.</p>
+<p>Python and pip come with a very simple way to create and manage virtual environments,
+we'll go through that in this article. </p>
+<p>Note: I'll be using <code>python</code> to refer to <code>python3</code> throughout this artivcle.  If you're on Linux or Mac, you probably need to type <code>python3</code> unless you've modified your defaults.</p>
+<h2 id="why-should-i-use-a-virtual-environment">Why Should I Use a Virtual Environment</h2>
+<p>Okay, I just said you don't need to know this.
+Regardless, a high level appreciation is often helpful.</p>
+<p>If you're totally new to Python, and maybe programming in general,
+you might not have learned about modules.
+Think of a module simply as some code you want to use, the details are not important for now.</p>
+<p>CPython ships with a standard set of modules.
+You can, and almost certainly will, download other modules though for some functionality not part of the standard CPython.
+There are many very commonly used modules that are not standard to CPython which might already be on your system.
+If you download a newer version of that module to your system, it could affect other programs using that module.</p>
+<p>A virtual environment creates a place for you to install modules specific to your project.
+Only your project uses those modules, and it only uses modules from your virtual environment.
+Thus, you can install modules in your virtual environment and not affect other programs.
+And other programs can install modules (outside your virtual environment) and not affect you.</p>
+<h2 id="creating-the-virtual-environment">Creating the Virtual Environment</h2>
+<p>You've installed python3, Visual Studio Code, the python extension for VS Code, and git on your laptop.
+You've configured VS Code with your python interpreter and cloned the project you want to work on.
+You're on the command line in your terminal and about to open VS Code in that project directory.
+Hold on, let's create a virtual environment first.</p>
+<p>The <code>venv</code> module is part of the standard python distribution.
+We will use that to create the virtual environment by running the following command:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>python -m venv --prompt some_project .venv 
+</span></code></pre></div></p>
+<h3 id="what-is-that-text-after-python">what is that text after <code>python</code>?</h3>
+<p>Those are command line parameters that affect how your python interpreter runs.</p>
+<ul>
+<li>the <code>-m venv</code> parameter tells python to run the venv module </li>
+<li>the <code>--prompt some_project</code> tells venv to use that string for the virtual environment prompt.
+  This is not required, I find it useful though.</li>
+<li>the <code>.venv</code> tells venv to place the virtual environment in a directory called <code>.venv</code>. </li>
+</ul>
+<p>When python is done creating the virtual environment ( you get your command prompt back),
+list the contents of your directory.
+You should see a new sub-directory in there named <code>.venv</code>.</p>
+<h2 id="activate-the-virtual-environment">Activate the Virtual Environment</h2>
+<p>This step is slightly different on Linux and Mac than Windows.
+ON Windows, the activate file is executed.
+On Linux and MacOS, the activate file is sourced.
+Note the file paths are different as well.</p>
+<p>After activating your virtual environment, your command line prompt should be prefixed with what you set <code>--prompt</code> to when creating the virtual environment.</p>
+<h3 id="activating-a-virtual-environment-on-windows">Activating a Virtual Environment on Windows</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>.venv/scripts/activate
+</span></code></pre></div>
+<h3 id="activating-the-virtual-environment-on-linux-and-macos">Activating the Virtual Environment on Linux and MacOS</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+</span></code></pre></div>
+<h2 id="now-lets-start-vs-code">Now Let's Start VS Code</h2>
+<p>You've activated the virtual environment and now your command line prompt looks something like:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>(some_project) C;\Users\joeld\projects\some_project&gt; 
+</span></code></pre></div></p>
+<p>Remember the "some_project" in parentheses at the beginning of the prompt is because I used the command line parameter <code>--prompt some_project</code>.
+I used that because that's the name of the directory the project is in.
+That's a convention I use, it's not a requirement for virtual environments.</p>
+<p>IN the terminal where you activated your virtual environment, type:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>code .
+</span></code></pre></div>
+That's the command <code>code</code> followed by the dot (period) character.
+the dot is for the current directory.</p>
+<p>You should now be in your Visual Studio Code editor.</p>
+<h2 id="configure-the-python-interpreter-for-vs-code">Configure the Python Interpreter for VS Code</h2>
+<p>Since you've run <code>code</code> from within your activated virtual environment, VS Code should have selected the python interpreter from that environment.
+Let's make sure.</p>
+<ul>
+<li>go to the command pallet, <code>ctrl+shift+p</code></li>
+<li>type "select interpreter"
+  VS Code will filter as you type, you might not need to type the entire string</li>
+<li>hit enter on the select interpreter </li>
+<li>a dialog with a list of available interpreters will be presented and your screen reader should tell you which is currently selected.
+  That is, focus in the list will be on the interpreter VS Code is currently using.</li>
+<li>you can arrow up and down on this list and hear the versions and paths of the various interpreters.
+  VS Code will tell you which of these is recommended.
+  It should tell you the interpreter from your virtual environment is recommended.
+  Note the path shown is relative to where you started VS Code.
+  That is, the recommended interpreter should sound something like".venv\scripts\python.exe"</li>
+</ul>
+<h2 id="deactivate">Deactivate?</h2>
+<p>There is a script to deactivate your virtual environment in the same directory as the activate script.
+It should revert the changes the activate script made to your shell environment.
+I tend to not use deactivate though.
+It's easy enough to exit the shell and terminal once I'm done with the virtual environment.</p>
+<h2 id="more-reading-for-more-details">More Reading for More Details</h2>
+<p>If you've read other Python related articles I've written, you'll know I'm a fan of
+<a href="https://realpython.com">RealPython</a>.
+I highly recommend this 
+<a href="https://realpython.com/python-virtual-environments-a-primer/">great article on virtual environments</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      
+    
+  </body>
+</html>
