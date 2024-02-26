@@ -122,6 +122,13 @@ Let's make sure.
   Note the path shown is relative to where you started VS Code.
   That is, the recommended interpreter should sound something like".venv\scripts\python.exe"
 
+## Deactivate?
+
+There is a script to deactivate your virtual environment in the same directory as the activate script.
+It should revert the changes the activate script made to your shell environment.
+I tend to not use deactivate though.
+It's easy enough to exit the shell and terminal once I'm done with the virtual environment.
+
 ## More Reading for More Details
 
 If you've read other Python related articles I've written, you'll know I'm a fan of
