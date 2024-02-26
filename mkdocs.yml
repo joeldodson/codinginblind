@@ -11,8 +11,9 @@ nav:
   - Articles: 
     - List of Articles: articles/index.md 
     - Getting Started with Python: articles/getting_started_with_python.md
+    - Very Basics of Virtual Environments: articles/very_basic_venv.md 
     - Python Variable Scope and f12 in VS Code: articles/python_variable_scope_and_f12.md
-    - Using the Command Line: using_command_line.md 
+    - Using the Command Line: articles/using_command_line.md 
 
 theme:
   name: material
