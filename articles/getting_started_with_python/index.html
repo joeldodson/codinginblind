@@ -1,0 +1,1173 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A place for me to host content hopefully useful to other blind software developers">
+      
+      
+        <meta name="author" content="Joel Dodson">
+      
+      
+        <link rel="canonical" href="https://joeldodson.github.io/codinginblind/articles/getting_started_with_python/">
+      
+      
+        <link rel="prev" href="../be_my_eyes_on_windows/">
+      
+      
+        <link rel="next" href="../python_python3/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+    
+    
+      
+        <title>Getting Started with Python - Coding In Blind</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.35f28582.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#getting-started-with-python-on-windows" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Coding In Blind" class="md-header__button md-logo" aria-label="Coding In Blind" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Coding In Blind
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Getting Started with Python
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/joeldodson/codinginblind" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Coding In Blind on GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Coding In Blind" class="md-nav__button md-logo" aria-label="Coding In Blind" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Coding In Blind
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/joeldodson/codinginblind" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Coding In Blind on GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Articles
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Articles
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    List of Articles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../be_my_eyes_on_windows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Be My Eyes on Windows
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Getting Started with Python
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started with Python
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#operating-system-windows-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operating System - Windows 11
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Operating System - Windows 11">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#screen-reader-nvda" class="md-nav__link">
+    <span class="md-ellipsis">
+      Screen Reader - NVDA
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-editor-visual-studio-code-vs-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Editor - Visual Studio Code (VS Code)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Editor - Visual Studio Code (VS Code)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#is-vscode-visual-studio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Is VSCode Visual Studio?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extensions-keyboard-shortcuts-and-the-command-pallet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extensions, Keyboard Shortcuts, and the Command Pallet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#which-extensions-should-i-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      Which Extensions Should I use?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-interpreter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python Interpreter
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python Interpreter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-not-install-from-the-windows-store" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Not Install from the Windows Store?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-versions-of-python-pyexe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiple Versions of Python (py.exe)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#powershell-and-always-use-a-virtual-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      PowerShell and Always Use a Virtual Environment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PowerShell and Always Use a Virtual Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-command-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Command Line
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-the-virtual-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating the Virtual Environment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#launching-vs-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Launching VS Code
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tell-vs-code-which-python-to-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tell VS Code which Python to use
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edit-and-run-your-python-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edit and Run Your Python Files
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-think-thats-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      I Think That's It
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#credits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Credits
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python_python3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python and Python3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using_command_line/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using the Command Line
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../very_basic_venv/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Very Basics of Virtual Environments
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python_variable_scope_and_f12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python Variable Scope and f12 in VS Code
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#operating-system-windows-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operating System - Windows 11
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Operating System - Windows 11">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#screen-reader-nvda" class="md-nav__link">
+    <span class="md-ellipsis">
+      Screen Reader - NVDA
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-editor-visual-studio-code-vs-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Editor - Visual Studio Code (VS Code)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Editor - Visual Studio Code (VS Code)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#is-vscode-visual-studio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Is VSCode Visual Studio?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extensions-keyboard-shortcuts-and-the-command-pallet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extensions, Keyboard Shortcuts, and the Command Pallet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#which-extensions-should-i-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      Which Extensions Should I use?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-interpreter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python Interpreter
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python Interpreter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-not-install-from-the-windows-store" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Not Install from the Windows Store?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-versions-of-python-pyexe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiple Versions of Python (py.exe)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#powershell-and-always-use-a-virtual-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      PowerShell and Always Use a Virtual Environment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PowerShell and Always Use a Virtual Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-command-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Command Line
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-the-virtual-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating the Virtual Environment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#launching-vs-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Launching VS Code
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tell-vs-code-which-python-to-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tell VS Code which Python to use
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edit-and-run-your-python-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edit and Run Your Python Files
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-think-thats-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      I Think That's It
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#credits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Credits
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="getting-started-with-python-on-windows">Getting Started with Python on Windows</h1>
+<p>This is the configuration I use to develop in Python on Windows.
+It's of course not the only way to go, and maybe not even the best way to go.
+It works for me though and, I think, is fairly easy to setup.</p>
+<p>I'm not going to add a lot of links in this article.
+It's not (entirely) out of laziness.
+Its more about not wanting links to become stale,
+and I think I'm giving enough detail for others to find resources they trust.</p>
+<p>One of the most valuable skills you'll need as a developer these days is finding sites you trust when you have questions.
+Be discerning though as some sites have a very poor content to advertisement ratio.
+They seem to be better at optimizing for search engines than generating anything everyone else hasn't already said.</p>
+<p>Think of this article as an introduction with very high level notes.
+If this setup sounds reasonable, 
+it would be good to dig deeper into VS Code, PowerShell, and Virtual Environments on your own.</p>
+<h2 id="operating-system-windows-11">Operating System - Windows 11</h2>
+<p>I moved to Windows 11 (from Windows 10)in, I think, early 2023.
+It works well and I tend to install all the updates when they're available.
+I know some people like to get something working and stick with it.
+I can appreciate that point and will not try to convince anyone to do otherwise.
+I personally though find staying current helps when I want to try new features with different technologies.</p>
+<h3 id="linux">Linux?</h3>
+<p>Yes, you'll almost certainly need to get some experience with Linux if you want to work as a software developer.
+Before losing my sight, I used a Mac mainly because of its UNIX core.
+I switched to Windows on the advice of other blind developers when I was focused on having an accessible development environment.
+Fortunately, this was around the time Windows Subsystem for Linux (WSL) was taking off.
+I now use WSL2 to run Ubuntu and other Linux distributions.</p>
+<p>There are other options for accessing a Linux environment.</p>
+<ul>
+<li>
+<p>You can create a Virtual Machine (VM) in a cloud provider (    I find 
+<a href="https://linode.com">Linode</a> to be the most accessible).
+You would then use a Windows SSH client to access your VM.</p>
+</li>
+<li>
+<p>You can run a version of Linux in a Docker container on Windows.
+For this you'll need Docker Desktop and should use it with WSL2. 
+I might write another article on how I use Docker locally.
+I've started to prefer this over running Ubuntu directly in WSL.
+For now, this is probably all I'll say regarding Docker.
+There is plenty of information out there already and I encourage anyone interested to learn about Docker (containers in general)</p>
+</li>
+</ul>
+<h2 id="screen-reader-nvda">Screen Reader - NVDA</h2>
+<p>I use the NVDA screen reader from 
+<a href="https://www.nvaccess.org">NVAccess</a> on Windows 11.
+I have Line Indenting Reporting set to tone and speak 
+under the Document Formatting settings.
+I consider this essential for Python and still nice to have for other languages.</p>
+<h2 id="code-editor-visual-studio-code-vs-code">Code Editor - Visual Studio Code (VS Code)</h2>
+<p>I use 
+<a href="https://code.visualstudio.com">Visual Studio Code</a>
+with the Microsoft Python extension.<br />
+The documentation is very good and Microsoft seems to have a commitment to accessibility beyond lip service.
+You might want to start by reading the 
+<a href="https://code.visualstudio.com/docs/editor/accessibility">docs regarding accessibility</a></p>
+<h3 id="is-vscode-visual-studio">Is VSCode Visual Studio?</h3>
+<p>No. <a href="https://visualstudio.com">Visual Studio</a> 
+is an Integrated Development Environment (IDE).
+VS Code is technically a code editor.
+The details are not that important.
+Think of an IDE as batteries included (e.g., compilers and debuggers), 
+where as in a code editor you'll need to install extensions (or plugins, or whatever your editor calls them).</p>
+<p>You can certainly use the Visual Studio IDE if you prefer,
+I hear its accessibility is good as well.
+It might be easier though to start with VS Code as it has fewer options and very broad adoption  across the industry.</p>
+<h3 id="extensions-keyboard-shortcuts-and-the-command-pallet">Extensions, Keyboard Shortcuts, and the Command Pallet</h3>
+<p>Once you've familiarized yourself with the layout of VS Code and the accessibility features,
+spend time learning some of the most useful keyboard shortcuts (ctrl+k, ctrl+s) and the command pallet (ctrl+shift+p).
+Also, since much of the functionality you'll use will come from extensions, learn how to search and install them (ctrl+shift+x).
+You can practice this by installing the Python extension from Microsoft.</p>
+<h3 id="which-extensions-should-i-use">Which Extensions Should I use?</h3>
+<p>I'd start with fewer extensions as you're getting familiar with the editor.
+VS Code is good at suggesting extensions if you're trying to do something and don't have that functionality available.
+For example, if you're trying to format your code (alt-shift-f) and don't have a Python formatting extension installed,
+VS Code will suggest one for you.
+I suggest starting with only the Python extension (from Microsoft) and go with whatever else VS Code suggests.</p>
+<p>If VS Code does suggest an extension and you can't remember what it said,
+go to the status bar (f6) then arrow until you get to "notifications".<br />
+Hit enter on notifications and you'll find the message regarding the extension.
+From there you can select 'yes' to have the extension installed.</p>
+<h2 id="python-interpreter">Python Interpreter</h2>
+<p>Continuing the theme of simplicity and broad adoption, I like the defacto-standard cPython interpreter.
+I opt for installing it from 
+<a href="https://python.org/download">python.org/download</a>
+it's easy to download and run the installer, 
+and it installs a little program called <code>py.exe</code> as well (more on that below).
+Make sure to check the box to have the installation update your PATH.</p>
+<h3 id="why-not-install-from-the-windows-store">Why Not Install from the Windows Store?</h3>
+<p>You certainly can do that, and I have done that before.
+My information is old so maybe I'm wrong.
+My experience though was the Windows store did not have the latest versions of the various Python versions,
+(e.g., 3.10.11, 3.11.5)
+and I don't like the Store UX/UI.  It's painful even if it is technically accessible.</p>
+<p>Regardless of how you choose to install Python, and which interpreter and/or environment you use,
+I suggest being consistent (always use the store, or python.org, don't mix them). </p>
+<h3 id="multiple-versions-of-python-pyexe">Multiple Versions of Python (py.exe)</h3>
+<p>You can install multiple versions of Python either through the store or from python.org (and other ways).
+I currently have versions 3.10, 3.11, and 3.12 installed from python.org.</p>
+<p>To use a specific version, I can specifically type the version:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>%&gt;<span class="w"> </span>python3.11<span class="w"> </span>--version<span class="w"> </span>
+</span></code></pre></div>
+That only works if I have my PATH setup with all versions of Python, which I don't.</p>
+<p>I do however have <code>py.exe</code> on my PATH.
+And because I've installed all my Python versions from python.org, <code>py.exe</code> knows about them all.
+And I think <code>py.exe</code> is only installed from python.org, but not sure.
+That is, if you've installed Python from the Windows Store and don't have <code>py.exe</code>, that might be why.</p>
+<p>I can list all the versions <code>py.exe</code> knows of:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>PS<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\j</span>oeld&gt;<span class="w"> </span>py<span class="w"> </span>--list
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w"> </span>-V:3.12<span class="w"> </span>*<span class="w">        </span>Python<span class="w"> </span><span class="m">3</span>.12<span class="w"> </span><span class="o">(</span><span class="m">64</span>-bit<span class="o">)</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w"> </span>-V:3.11<span class="w">          </span>Python<span class="w"> </span><span class="m">3</span>.11<span class="w"> </span><span class="o">(</span><span class="m">64</span>-bit<span class="o">)</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w"> </span>-V:3.10<span class="w">          </span>Python<span class="w"> </span><span class="m">3</span>.10<span class="w"> </span><span class="o">(</span><span class="m">64</span>-bit<span class="o">)</span>
+</span></code></pre></div>
+And I can run a specific version
+(NOTE: the argument <code>--version</code> on the command line is to tell the Python interpreter to print its version string.
+It's an easy way to check if your PATH is correct and your interpreter actually runs.):
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>PS<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\j</span>oeld&gt;<span class="w"> </span>py<span class="w"> </span>-3.11<span class="w"> </span>--version
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Python<span class="w"> </span><span class="m">3</span>.11.5
+</span></code></pre></div></p>
+<h2 id="powershell-and-always-use-a-virtual-environment">PowerShell and Always Use a Virtual Environment</h2>
+<h3 id="the-command-line">The Command Line</h3>
+<p>I've always been more comfortable in a command line environment.
+And now, as a blind developer, I like the accessibility of the command line.
+On Windows, I use PowerShell, currently on version 7.3.9.
+I recall there was already some kind of PowerShell available when I installed Windows 10 the first time, that's not the right one.
+Windows 11 might already come with PowerShell 7.  If not, install it from Microsoft.</p>
+<p>The following commands for creating an development environment are all run from a PowerShell prompt (though I edited the prefix) </p>
+<h3 id="creating-the-virtual-environment">Creating the Virtual Environment</h3>
+<p>Here is a 
+<a href="https://realpython.com/python-virtual-environments-a-primer/">great article on virtual environments</a>.
+I highly suggest you read it to understand how Python knows which files to install from where.
+(RealPython is one of the Python sites I trust for very good explanations.)</p>
+<p>If I want to develop or test something using Python 3.10,
+I'll start by creating a virtual environment (plus some other steps):
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>tmp&gt;<span class="w"> </span>mkdir<span class="w"> </span>py3.10-project
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="o">[</span>edited<span class="w"> </span>output<span class="o">]</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>tmp&gt;<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>py3.10-project
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>tmp<span class="se">\p</span>y3.10-project&gt;<span class="w"> </span>py<span class="w"> </span>-3.10<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>--prompt<span class="w"> </span><span class="m">3</span>.10project<span class="w"> </span>.venv
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>tmp<span class="se">\p</span>y3.10-project&gt;<span class="w"> </span>./.venv/scripts/activate
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="o">(</span><span class="m">3</span>.10project<span class="o">)</span><span class="w"> </span>tmp<span class="se">\p</span>y3.10-project&gt;<span class="w"> </span>python<span class="w"> </span>--version
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>Python<span class="w"> </span><span class="m">3</span>.10.11
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="o">(</span><span class="m">3</span>.10project<span class="o">)</span><span class="w"> </span>tmp<span class="se">\p</span>y3.10-project&gt;<span class="w"> </span>where.exe<span class="w"> </span>python
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>C:<span class="se">\U</span>sers<span class="se">\j</span>oeld<span class="se">\t</span>mp<span class="se">\p</span>y3.10-project<span class="se">\.</span>venv<span class="se">\S</span>cripts<span class="se">\p</span>ython.exe
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>C:<span class="se">\P</span>rogram<span class="w"> </span>Files<span class="se">\P</span>ython311<span class="se">\p</span>ython.exe
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>C:<span class="se">\U</span>sers<span class="se">\j</span>oeld<span class="se">\A</span>ppData<span class="se">\L</span>ocal<span class="se">\P</span>rograms<span class="se">\P</span>ython<span class="se">\P</span>ython312<span class="se">\p</span>ython.exe
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>C:<span class="se">\U</span>sers<span class="se">\j</span>oeld<span class="se">\A</span>ppData<span class="se">\L</span>ocal<span class="se">\P</span>rograms<span class="se">\P</span>ython<span class="se">\P</span>ython310<span class="se">\p</span>ython.exe
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>C:<span class="se">\U</span>sers<span class="se">\j</span>oeld<span class="se">\A</span>ppData<span class="se">\L</span>ocal<span class="se">\M</span>icrosoft<span class="se">\W</span>indowsApps<span class="se">\p</span>ython.exe
+</span></code></pre></div></p>
+<p>Let's go over what just happened:</p>
+<ol>
+<li>created a new directory for the project and cd into it </li>
+<li>created a virtual environment using <code>py</code> to specify I want to run python version 3.10<ul>
+<li><code>-m venv</code> is to run the venv module which is now included in the standard cPython distribution </li>
+<li><code>--prompt 3.10project</code> is to specify a prompt for this virtual environment </li>
+<li><code>.venv</code> is to have the virtual environment created in a directory named .venv</li>
+</ul>
+</li>
+<li>I activate the environment by running the activate script in the new virtual environment<ul>
+<li>Notice after this the command line prompt has changed to include '(3.10project)'</li>
+</ul>
+</li>
+<li>Now that I'm in the activated virtual environment, <code>python</code> refers to the version of Python used to create the virtual environment<ul>
+<li>ran <code>python --version</code> to show this</li>
+</ul>
+</li>
+<li>where.exe shows everywhere on your PATH the specified program exists<ul>
+<li>notice python in our new virtual environment is the first one, that's good</li>
+</ul>
+</li>
+</ol>
+<h3 id="launching-vs-code">Launching VS Code</h3>
+<p>Now that we have an activated virtual environment, let's start VS Code.
+From the command prompt, simply type:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="o">(</span><span class="m">3</span>.10project<span class="o">)</span><span class="w"> </span>tmp<span class="se">\p</span>y3.10-project&gt;<span class="w"> </span>code<span class="w"> </span>.
+</span></code></pre></div>
+That is, <code>code</code> is the program name and <code>.</code> (dot) is the directory to open.
+(The dot (period character) always represents the current directory.)
+The VS Code UI will open ready to edit files in that directory.</p>
+<h2 id="tell-vs-code-which-python-to-use">Tell VS Code which Python to use</h2>
+<p>We'll use the command pallet for this, and the shortcut keys to get there.</p>
+<p>Assuming you've installed the Microsoft Python extension already, 
+type <code>ctrl+shift+p</code> to bring up the command pallet.
+You'll be automatically in the search field.
+Type 'select python interpreter' and you should be on the command.
+The number of matches is filtered as you type, you probably will not need to type all three words.
+Hit enter and you should get a list of available python environments.</p>
+<p>If you launched VS Code from within an activated virtual environment, 
+the python interpreter from the .venv environment should already be selected.
+And you can simply hit enter to keep that choice.
+Otherwise, you can arrow up and down to select the appropriate interpreter. </p>
+<h2 id="edit-and-run-your-python-files">Edit and Run Your Python Files</h2>
+<p>Now you can create your hellow_world.py file in VS Code.
+You can run the file directly in VS Code, and there is a terminal that is accessible.
+I'm not a big fan of that workflow though.
+I like to edit the code then pop back out to my PowerShell to run the code.
+That is, <code>alt+tab</code> to get back to your PowerShell window, then:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="o">(</span><span class="m">3</span>.10project<span class="o">)</span><span class="w"> </span>tmp<span class="se">\p</span>y3.10-project<span class="w"> </span>&gt;<span class="w"> </span>python<span class="w"> </span>hello_world.py<span class="w"> </span>
+</span></code></pre></div>
+And you should see any output in that window (like we did when creating the virtual environment).</p>
+<p>Ken noted you can also use <code>ctrl+shift+c</code> to have VS Code open a command shell using it's current working directory. 
+If you had opened VS Code as described above, that should be the directory with your source code.
+Ken also noted you can change the default shell from <code>cmd</code> to something else, e.g.e, PowerShell. 
+That's done in the settings which can take some getting used to.
+Instead of trying to explain it here, I suggest you bing it. </p>
+<h2 id="i-think-thats-it">I Think That's It</h2>
+<p>Hopefully this gets you started with a basic environment and understanding to build from.
+If you have questions, or want more details, please open an issue at the
+<a href="https://github.com/joeldodson/codinginblind/issues">the codinginblind repo</a>.</p>
+<p>Cheers!</p>
+<p>Joel </p>
+<h2 id="credits">Credits</h2>
+<p>I'll add notes here to give credit to people who help make this better and correct my mistakes.</p>
+<ul>
+<li>Thanks Ken for pointing out the alt-f4 which should be alt-tab 
+  (already fixed if you don't see any alt-f4 in the text.)
+    And thanks for the ctrl+shift+c shortcut reminder.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>
+      
+    
+  </body>
+</html>
