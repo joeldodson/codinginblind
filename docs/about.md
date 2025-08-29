@@ -11,14 +11,3 @@ Some were very new to programming, some were new to Python.
 I heard myself rambling on regarding using a virtual environment and my deep love for the REPL.
 I realized no one was going to remember the examples I was giving (I wouldn't have at least).
 It was time to finally put this idea in motion.
-
-## Technical Details
-
-I'm using
-[material for mkdocs](https://squidfunk.github.io/mkdocs-material/)
-to create the content.
-It's being hosted on my (Joel Dodson)github pages.
-[codinginblind.vip](https://codinginblind.vip)
-is redirected to my github pages via a 3xx from
-[NameCheap](https://namecheap.com), 
-where I purchased the domain.

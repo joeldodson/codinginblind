@@ -27,6 +27,7 @@ Unless you're maintaining old Python code, you really don't need to know any det
 
 If you're considering using a module that still doesn't support Python version 3,
 you're almost certainly asking for extra work. 
+And that module is out dated and likely no longer maintained.
 
 ## Why Not Settle on the Command ``` python ``` Now?
 
@@ -38,7 +39,7 @@ If the ``` python ``` command runs Python version 3, the scripts will most likel
 Now, consider needing to update a system that has Python version 2 scripts.
 It's highly unlikely you can update all those scripts at one time.
 This puts you in a position to need both ``` python ``` and ``` python3 ``` on the same system.
-Which also puts you in the position of having the comannd ``` python3 ``` embedded in some of your system scripts.
+Which also puts you in the position of having the command ``` python3 ``` embedded in some of your system scripts.
 
 Now you've completed the migration of your version 2 code to version 3,
 you can get rid of the ``` python ``` command.
@@ -51,4 +52,14 @@ If you're absolutely sure there is nothing on your system expecting the command 
 you can create an alias, or whatever the configuration is on your system,
 for ``` python ``` to be Python version 3.
 
-If you system came with Python version 2 already installed as ``` python ```, you'll almost certainly break something if you globally change ``` python ``` to run version 3.
+If your system came with Python version 2 already installed as ``` python ```, you'll almost certainly break something if you globally change ``` python ``` to run version 3.
+
+## Why does Windows tell me to go to the store?     
+
+If you run '''python''' or '''python3''' from a command line on Windows, you'll probably get a popup or message of some sort linking you to the Windows store.
+I strongly encourage you to ignore that and go read my article on 
+[Getting Started with Python](getting_started_with_python.md).
+It will point you to [the main python website (python.org)](https://python.org)
+and tell you how to download and install an official version of Python.
+The Windows store is also an official version, but python.org is going directly to the source and will be the first to have the recent version.
+Plus, as far as I'm concerned, the Windows store is a crap show of frustration.

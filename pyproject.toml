@@ -1,0 +1,45 @@
+## see https://packaging.python.org/en/latest/guides/writing-pyproject-toml/
+
+[project]
+name = "codinginblind"
+version = "0.1.0"
+description = "resources for blind and low vision people to learn some coding basics"
+authors = [
+    {name = "Joel Dodson",email = "joeldodson@gmail.com"}
+]
+license = "LICENSE.md"
+readme = "README.md"
+requires-python = ">=3.11"
+
+dependencies = [
+    "sphinx (>=8.2.3,<9.0.0)",
+    "pydata-sphinx-theme (>=0.16.1,<0.17.0)",
+    "myst-parser (>=4.0.1,<5.0.0)"
+]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Development Status :: 3 - Alpha",
+]
+
+keywords = [
+    "python",
+    "coding",
+    "accessibility",
+    "a11y",
+    "command line",
+    "cli",
+]
+
+[project.urls]
+homepage = "https://codinginblind.vip"
+documentation = "https://codinginblind.vip"
+repository = "https://github.com/joeldodson/codinginblind"
+issues = "https://github.com/joeldodson/codinginblind/issues"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+## end of file

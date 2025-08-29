@@ -24,17 +24,16 @@ Note: I'll be using ``` python ``` to refer to ``` python3 ``` throughout this a
 Okay, I just said you don't need to know this.
 Regardless, a high level appreciation is often helpful.
 
-If you're totally new to Python, and maybe programming in general,
-you might not have learned about modules.
+If you're totally new to Python, and maybe programming in general, you might not have learned about modules.
 Think of a module simply as some code you want to use, the details are not important for now.
 
-CPython ships with a standard set of modules.
-You can, and almost certainly will, download other modules though for some functionality not part of the standard CPython.
-There are many very commonly used modules that are not standard to CPython which might already be on your system.
+The standard Python library includes many modules.
+You can, and almost certainly will, download other modules though for some functionality not part of the standard Python library.
+There are many very commonly used modules that are not standard to Python which might already be on your system.
 If you download a newer version of that module to your system, it could affect other programs using that module.
 
 A virtual environment creates a place for you to install modules specific to your project.
-Only your project uses those modules, and it only uses modules from your virtual environment.
+Only your project uses those modules, and it only uses modules from your virtual environment (though you can use modules installed globally based on configuration).
 Thus, you can install modules in your virtual environment and not affect other programs.
 And other programs can install modules (outside your virtual environment) and not affect you.
 
@@ -47,7 +46,7 @@ Hold on, let's create a virtual environment first.
 
 The ``` venv ``` module is part of the standard python distribution.
 We will use that to create the virtual environment by running the following command:
-``` cmd
+``` sh
 python -m venv --prompt some_project .venv 
 ``` 
 
@@ -75,7 +74,7 @@ After activating your virtual environment, your command line prompt should be pr
 
 ### Activating a Virtual Environment on Windows
 
-``` cmd
+``` sh
 .venv/scripts/activate
 ``` 
 
@@ -88,8 +87,8 @@ source .venv/bin/activate
 ## Now Let's Start VS Code
 
 You've activated the virtual environment and now your command line prompt looks something like:
-``` cmd 
-(some_project) C;\Users\joeld\projects\some_project> 
+``` sh 
+(some_project) C:\Users\joeld\projects\some_project> 
 ```
 
 Remember the "some_project" in parentheses at the beginning of the prompt is because I used the command line parameter ``` --prompt some_project ```.
@@ -97,7 +96,7 @@ I used that because that's the name of the directory the project is in.
 That's a convention I use, it's not a requirement for virtual environments.
 
 IN the terminal where you activated your virtual environment, type:
-``` cmd 
+``` sh 
 code .
 ``` 
 That's the command ``` code ``` followed by the dot (period) character.

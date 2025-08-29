@@ -238,7 +238,7 @@ And you should see any output in that window (like we did when creating the virt
 
 Ken noted you can also use ``` ctrl+shift+c ``` to have VS Code open a command shell using it's current working directory. 
 If you had opened VS Code as described above, that should be the directory with your source code.
-Ken also noted you can change the default shell from ``` cmd ``` to something else, e.g.e, PowerShell. 
+Ken also noted you can change the default shell from ``` sh ``` to something else, e.g.e, PowerShell. 
 That's done in the settings which can take some getting used to.
 Instead of trying to explain it here, I suggest you bing it. 
 
