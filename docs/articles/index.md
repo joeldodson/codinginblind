@@ -1,9 +1,7 @@
 # List of Articles 
 
-This page is only here in case someone tries to go to
-[codinginblind.vip/articles](index.md)
-instead of directly to an article via the navigation section.
-
+* [Learning the Narrator Screen Reader](learning_narrator.md): 
+  Some links and notes for getting started with the native Windows Narrator Screen Reader.
 * [Getting Started with Python](getting_started_with_python.md): 
   This is intended for anyone wanting to learn Python using Windows.
   It's filled with my opinions and links with more useful information.
@@ -17,6 +15,7 @@ instead of directly to an article via the navigation section.
 :hidden: false
 :caption: articles
 
+learning_narrator
 getting_started_with_python
 python_python3
 very_basic_venv
