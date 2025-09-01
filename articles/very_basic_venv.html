@@ -1,0 +1,526 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Very Basics of Virtual Environments &#8212; Coding In Blind</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'articles/very_basic_venv';</script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="About Coding In Blind" href="../about.html" />
+    <link rel="prev" title="Python and Python3" href="python_python3.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1" />
+    <meta name="docbuild:last-update" content="Sep 01, 2025"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Coding In Blind</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Articles
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../about.html">
+    About
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/joeldodson/codinginblind" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Articles
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../about.html">
+    About
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/joeldodson/codinginblind" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-should-i-use-a-virtual-environment">Why Should I Use a Virtual Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-the-virtual-environment">Creating the Virtual Environment</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-that-text-after-python">what is that text after <code class="docutils literal notranslate"><span class="pre">python</span></code>?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-the-virtual-environment">Activate the Virtual Environment</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activating-a-virtual-environment-on-windows">Activating a Virtual Environment on Windows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activating-the-virtual-environment-on-linux-and-macos">Activating the Virtual Environment on Linux and MacOS</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#now-let-s-start-vs-code">Now Let’s Start VS Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-the-python-interpreter-for-vs-code">Configure the Python Interpreter for VS Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deactivate">Deactivate?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-reading-for-more-details">More Reading for More Details</a></li>
+</ul>
+  </nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none"></div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="very-basics-of-virtual-environments">
+<h1>Very Basics of Virtual Environments<a class="headerlink" href="#very-basics-of-virtual-environments" title="Link to this heading">#</a></h1>
+<p>If you’ve used computers a while (including mobile devices) you’ve probably run across the advice to remove and reinstall some software.
+Or, at the very least, restart your computer.
+And often this resolves the problem.
+One reason for this is most software is complex and has dependencies across the platform.
+Python is no different.</p>
+<p>Virtual environments are an attempt to minimize this problem with dependencies.
+They can help keep your project safe from others,
+and keep other software on your system safe from your project.
+There are a crazy number of ways to create and manage virtual environments,
+and they can sound intimidating when you start pulling back the curtain.
+You don’t need to know many details to get started though.
+You can, and arguably should, use virtual environments from the beginning of your Python journey.</p>
+<p>Python and pip come with a very simple way to create and manage virtual environments,
+we’ll go through that in this article.</p>
+<p>Note: I’ll be using <code class="docutils literal notranslate"><span class="pre">python</span></code> to refer to <code class="docutils literal notranslate"><span class="pre">python3</span></code> throughout this artivcle.  If you’re on Linux or Mac, you probably need to type <code class="docutils literal notranslate"> <span class="pre">python3</span></code> unless you’ve modified your defaults.</p>
+<section id="why-should-i-use-a-virtual-environment">
+<h2>Why Should I Use a Virtual Environment<a class="headerlink" href="#why-should-i-use-a-virtual-environment" title="Link to this heading">#</a></h2>
+<p>Okay, I just said you don’t need to know this.
+Regardless, a high level appreciation is often helpful.</p>
+<p>If you’re totally new to Python, and maybe programming in general, you might not have learned about modules.
+Think of a module simply as some code you want to use, the details are not important for now.</p>
+<p>The standard Python library includes many modules.
+You can, and almost certainly will, download other modules though for some functionality not part of the standard Python library.
+There are many very commonly used modules that are not standard to Python which might already be on your system.
+If you download a newer version of that module to your system, it could affect other programs using that module.</p>
+<p>A virtual environment creates a place for you to install modules specific to your project.
+Only your project uses those modules, and it only uses modules from your virtual environment (though you can use modules installed globally based on configuration).
+Thus, you can install modules in your virtual environment and not affect other programs.
+And other programs can install modules (outside your virtual environment) and not affect you.</p>
+</section>
+<section id="creating-the-virtual-environment">
+<h2>Creating the Virtual Environment<a class="headerlink" href="#creating-the-virtual-environment" title="Link to this heading">#</a></h2>
+<p>You’ve installed python3, Visual Studio Code, the python extension for VS Code, and git on your laptop.
+You’ve configured VS Code with your python interpreter and cloned the project you want to work on.
+You’re on the command line in your terminal and about to open VS Code in that project directory.
+Hold on, let’s create a virtual environment first.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">venv</span></code> module is part of the standard python distribution.
+We will use that to create the virtual environment by running the following command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>--prompt<span class="w"> </span>some_project<span class="w"> </span>.venv<span class="w"> </span>
+</pre></div>
+</div>
+<section id="what-is-that-text-after-python">
+<h3>what is that text after <code class="docutils literal notranslate"><span class="pre">python</span></code>?<a class="headerlink" href="#what-is-that-text-after-python" title="Link to this heading">#</a></h3>
+<p>Those are command line parameters that affect how your python interpreter runs.</p>
+<ul class="simple">
+<li><p>the <code class="docutils literal notranslate"><span class="pre">-m</span> <span class="pre">venv</span></code> parameter tells python to run the venv module</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">--prompt</span> <span class="pre">some_project</span></code> tells venv to use that string for the virtual environment prompt.
+This is not required, I find it useful though.</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">.venv</span></code> tells venv to place the virtual environment in a directory called <code class="docutils literal notranslate"><span class="pre">.venv</span></code>.</p></li>
+</ul>
+<p>When python is done creating the virtual environment ( you get your command prompt back),
+list the contents of your directory.
+You should see a new sub-directory in there named <code class="docutils literal notranslate"><span class="pre">.venv</span></code>.</p>
+</section>
+</section>
+<section id="activate-the-virtual-environment">
+<h2>Activate the Virtual Environment<a class="headerlink" href="#activate-the-virtual-environment" title="Link to this heading">#</a></h2>
+<p>This step is slightly different on Linux and Mac than Windows.
+ON Windows, the activate file is executed.
+On Linux and MacOS, the activate file is sourced.
+Note the file paths are different as well.</p>
+<p>After activating your virtual environment, your command line prompt should be prefixed with what you set <code class="docutils literal notranslate"><span class="pre">--prompt</span></code> to when creating the virtual environment.</p>
+<section id="activating-a-virtual-environment-on-windows">
+<h3>Activating a Virtual Environment on Windows<a class="headerlink" href="#activating-a-virtual-environment-on-windows" title="Link to this heading">#</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>.venv/scripts/activate
+</pre></div>
+</div>
+</section>
+<section id="activating-the-virtual-environment-on-linux-and-macos">
+<h3>Activating the Virtual Environment on Linux and MacOS<a class="headerlink" href="#activating-the-virtual-environment-on-linux-and-macos" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+</pre></div>
+</div>
+</section>
+</section>
+<section id="now-let-s-start-vs-code">
+<h2>Now Let’s Start VS Code<a class="headerlink" href="#now-let-s-start-vs-code" title="Link to this heading">#</a></h2>
+<p>You’ve activated the virtual environment and now your command line prompt looks something like:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>some_project<span class="o">)</span><span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\j</span>oeld<span class="se">\p</span>rojects<span class="se">\s</span>ome_project&gt;<span class="w"> </span>
+</pre></div>
+</div>
+<p>Remember the “some_project” in parentheses at the beginning of the prompt is because I used the command line parameter <code class="docutils literal notranslate"><span class="pre">--prompt</span> <span class="pre">some_project</span></code>.
+I used that because that’s the name of the directory the project is in.
+That’s a convention I use, it’s not a requirement for virtual environments.</p>
+<p>IN the terminal where you activated your virtual environment, type:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>code<span class="w"> </span>.
+</pre></div>
+</div>
+<p>That’s the command <code class="docutils literal notranslate"><span class="pre">code</span></code> followed by the dot (period) character.
+the dot is for the current directory.</p>
+<p>You should now be in your Visual Studio Code editor.</p>
+</section>
+<section id="configure-the-python-interpreter-for-vs-code">
+<h2>Configure the Python Interpreter for VS Code<a class="headerlink" href="#configure-the-python-interpreter-for-vs-code" title="Link to this heading">#</a></h2>
+<p>Since you’ve run <code class="docutils literal notranslate"><span class="pre">code</span></code> from within your activated virtual environment, VS Code should have selected the python interpreter from that environment.
+Let’s make sure.</p>
+<ul class="simple">
+<li><p>go to the command pallet, <code class="docutils literal notranslate"><span class="pre">ctrl+shift+p</span></code></p></li>
+<li><p>type “select interpreter”
+VS Code will filter as you type, you might not need to type the entire string</p></li>
+<li><p>hit enter on the select interpreter</p></li>
+<li><p>a dialog with a list of available interpreters will be presented and your screen reader should tell you which is currently selected.
+That is, focus in the list will be on the interpreter VS Code is currently using.</p></li>
+<li><p>you can arrow up and down on this list and hear the versions and paths of the various interpreters.
+VS Code will tell you which of these is recommended.
+It should tell you the interpreter from your virtual environment is recommended.
+Note the path shown is relative to where you started VS Code.
+That is, the recommended interpreter should sound something like”.venv\scripts\python.exe”</p></li>
+</ul>
+</section>
+<section id="deactivate">
+<h2>Deactivate?<a class="headerlink" href="#deactivate" title="Link to this heading">#</a></h2>
+<p>There is a script to deactivate your virtual environment in the same directory as the activate script.
+It should revert the changes the activate script made to your shell environment.
+I tend to not use deactivate though.
+It’s easy enough to exit the shell and terminal once I’m done with the virtual environment.</p>
+</section>
+<section id="more-reading-for-more-details">
+<h2>More Reading for More Details<a class="headerlink" href="#more-reading-for-more-details" title="Link to this heading">#</a></h2>
+<p>If you’ve read other Python related articles I’ve written, you’ll know I’m a fan of
+<a class="reference external" href="https://realpython.com">RealPython</a>.
+I highly recommend this
+<a class="reference external" href="https://realpython.com/python-virtual-environments-a-primer/">great article on virtual environments</a>.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="python_python3.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Python and Python3</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../about.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">About Coding In Blind</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+        <div class="footer-item"><p class="last-updated">
+  Last updated on Sep 01, 2025.
+  <br/>
+</p></div>
+      
+    </div>
+  
+  
+</div>
+
+  </footer>
+  </body>
+</html>

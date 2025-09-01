@@ -1,0 +1,671 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Getting Started with Python on Windows &#8212; Coding In Blind</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'articles/getting_started_with_python';</script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Python and Python3" href="python_python3.html" />
+    <link rel="prev" title="Learning Narrator" href="learning_narrator.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1" />
+    <meta name="docbuild:last-update" content="Sep 01, 2025"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Coding In Blind</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Articles
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../about.html">
+    About
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/joeldodson/codinginblind" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Articles
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../about.html">
+    About
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/joeldodson/codinginblind" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operating-system-windows-11">Operating System - Windows 11</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linux">Linux?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#screen-reader-nvda">Screen Reader - NVDA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-editor-visual-studio-code-vs-code">Code Editor - Visual Studio Code (VS Code)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-vscode-visual-studio">Is VSCode Visual Studio?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extensions-keyboard-shortcuts-and-the-command-pallet">Extensions, Keyboard Shortcuts, and the Command Pallet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#which-extensions-should-i-use">Which Extensions Should I use?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-interpreter">Python Interpreter</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-not-install-from-the-windows-store">Why Not Install from the Windows Store?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-versions-of-python-py-exe">Multiple Versions of Python (py.exe)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#powershell-and-always-use-a-virtual-environment">PowerShell and Always Use a Virtual Environment</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-command-line">The Command Line</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-the-virtual-environment">Creating the Virtual Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-vs-code">Launching VS Code</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tell-vs-code-which-python-to-use">Tell VS Code which Python to use</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#edit-and-run-your-python-files">Edit and Run Your Python Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#i-think-that-s-it">I Think That’s It</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#credits">Credits</a></li>
+</ul>
+  </nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none"></div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="getting-started-with-python-on-windows">
+<h1>Getting Started with Python on Windows<a class="headerlink" href="#getting-started-with-python-on-windows" title="Link to this heading">#</a></h1>
+<p>This is the configuration I use to develop in Python on Windows.
+It’s of course not the only way to go, and maybe not even the best way to go.
+It works for me though and, I think, is fairly easy to setup.</p>
+<p>I’m not going to add a lot of links in this article.
+It’s not (entirely) out of laziness.
+Its more about not wanting links to become stale,
+and I think I’m giving enough detail for others to find resources they trust.</p>
+<p>One of the most valuable skills you’ll need as a developer these days is finding sites you trust when you have questions.
+Be discerning though as some sites have a very poor content to advertisement ratio.
+They seem to be better at optimizing for search engines than generating anything everyone else hasn’t already said.</p>
+<p>Think of this article as an introduction with very high level notes.
+If this setup sounds reasonable,
+it would be good to dig deeper into VS Code, PowerShell, and Virtual Environments on your own.</p>
+<section id="operating-system-windows-11">
+<h2>Operating System - Windows 11<a class="headerlink" href="#operating-system-windows-11" title="Link to this heading">#</a></h2>
+<p>I moved to Windows 11 (from Windows 10)in, I think, early 2023.
+It works well and I tend to install all the updates when they’re available.
+I know some people like to get something working and stick with it.
+I can appreciate that point and will not try to convince anyone to do otherwise.
+I personally though find staying current helps when I want to try new features with different technologies.</p>
+<section id="linux">
+<h3>Linux?<a class="headerlink" href="#linux" title="Link to this heading">#</a></h3>
+<p>Yes, you’ll almost certainly need to get some experience with Linux if you want to work as a software developer.
+Before losing my sight, I used a Mac mainly because of its UNIX core.
+I switched to Windows on the advice of other blind developers when I was focused on having an accessible development environment.
+Fortunately, this was around the time Windows Subsystem for Linux (WSL) was taking off.
+I now use WSL2 to run Ubuntu and other Linux distributions.</p>
+<p>There are other options for accessing a Linux environment.</p>
+<ul class="simple">
+<li><p>You can create a Virtual Machine (VM) in a cloud provider (    I find
+<a class="reference external" href="https://linode.com">Linode</a> to be the most accessible).
+You would then use a Windows SSH client to access your VM.</p></li>
+<li><p>You can run a version of Linux in a Docker container on Windows.
+For this you’ll need Docker Desktop and should use it with WSL2.
+I might write another article on how I use Docker locally.
+I’ve started to prefer this over running Ubuntu directly in WSL.
+For now, this is probably all I’ll say regarding Docker.
+There is plenty of information out there already and I encourage anyone interested to learn about Docker (containers in general)</p></li>
+</ul>
+</section>
+</section>
+<section id="screen-reader-nvda">
+<h2>Screen Reader - NVDA<a class="headerlink" href="#screen-reader-nvda" title="Link to this heading">#</a></h2>
+<p>I use the NVDA screen reader from
+<a class="reference external" href="https://www.nvaccess.org">NVAccess</a> on Windows 11.
+I have Line Indenting Reporting set to tone and speak
+under the Document Formatting settings.
+I consider this essential for Python and still nice to have for other languages.</p>
+</section>
+<section id="code-editor-visual-studio-code-vs-code">
+<h2>Code Editor - Visual Studio Code (VS Code)<a class="headerlink" href="#code-editor-visual-studio-code-vs-code" title="Link to this heading">#</a></h2>
+<p>I use
+<a class="reference external" href="https://code.visualstudio.com">Visual Studio Code</a>
+with the Microsoft Python extension.<br />
+The documentation is very good and Microsoft seems to have a commitment to accessibility beyond lip service.
+You might want to start by reading the
+<a class="reference external" href="https://code.visualstudio.com/docs/editor/accessibility">docs regarding accessibility</a></p>
+<section id="is-vscode-visual-studio">
+<h3>Is VSCode Visual Studio?<a class="headerlink" href="#is-vscode-visual-studio" title="Link to this heading">#</a></h3>
+<p>No. <a class="reference external" href="https://visualstudio.com">Visual Studio</a>
+is an Integrated Development Environment (IDE).
+VS Code is technically a code editor.
+The details are not that important.
+Think of an IDE as batteries included (e.g., compilers and debuggers),
+where as in a code editor you’ll need to install extensions (or plugins, or whatever your editor calls them).</p>
+<p>You can certainly use the Visual Studio IDE if you prefer,
+I hear its accessibility is good as well.
+It might be easier though to start with VS Code as it has fewer options and very broad adoption  across the industry.</p>
+</section>
+<section id="extensions-keyboard-shortcuts-and-the-command-pallet">
+<h3>Extensions, Keyboard Shortcuts, and the Command Pallet<a class="headerlink" href="#extensions-keyboard-shortcuts-and-the-command-pallet" title="Link to this heading">#</a></h3>
+<p>Once you’ve familiarized yourself with the layout of VS Code and the accessibility features,
+spend time learning some of the most useful keyboard shortcuts (ctrl+k, ctrl+s) and the command pallet (ctrl+shift+p).
+Also, since much of the functionality you’ll use will come from extensions, learn how to search and install them (ctrl+shift+x).
+You can practice this by installing the Python extension from Microsoft.</p>
+</section>
+<section id="which-extensions-should-i-use">
+<h3>Which Extensions Should I use?<a class="headerlink" href="#which-extensions-should-i-use" title="Link to this heading">#</a></h3>
+<p>I’d start with fewer extensions as you’re getting familiar with the editor.
+VS Code is good at suggesting extensions if you’re trying to do something and don’t have that functionality available.
+For example, if you’re trying to format your code (alt-shift-f) and don’t have a Python formatting extension installed,
+VS Code will suggest one for you.
+I suggest starting with only the Python extension (from Microsoft) and go with whatever else VS Code suggests.</p>
+<p>If VS Code does suggest an extension and you can’t remember what it said,
+go to the status bar (f6) then arrow until you get to “notifications”.<br />
+Hit enter on notifications and you’ll find the message regarding the extension.
+From there you can select ‘yes’ to have the extension installed.</p>
+</section>
+</section>
+<section id="python-interpreter">
+<h2>Python Interpreter<a class="headerlink" href="#python-interpreter" title="Link to this heading">#</a></h2>
+<p>Continuing the theme of simplicity and broad adoption, I like the defacto-standard cPython interpreter.
+I opt for installing it from
+<a class="reference external" href="https://python.org/download">python.org/download</a>
+it’s easy to download and run the installer,
+and it installs a little program called <code class="docutils literal notranslate"> <span class="pre">py.exe</span></code> as well (more on that below).
+Make sure to check the box to have the installation update your PATH.</p>
+<section id="why-not-install-from-the-windows-store">
+<h3>Why Not Install from the Windows Store?<a class="headerlink" href="#why-not-install-from-the-windows-store" title="Link to this heading">#</a></h3>
+<p>You certainly can do that, and I have done that before.
+My information is old so maybe I’m wrong.
+My experience though was the Windows store did not have the latest versions of the various Python versions,
+(e.g., 3.10.11, 3.11.5)
+and I don’t like the Store UX/UI.  It’s painful even if it is technically accessible.</p>
+<p>Regardless of how you choose to install Python, and which interpreter and/or environment you use,
+I suggest being consistent (always use the store, or python.org, don’t mix them).</p>
+</section>
+<section id="multiple-versions-of-python-py-exe">
+<h3>Multiple Versions of Python (py.exe)<a class="headerlink" href="#multiple-versions-of-python-py-exe" title="Link to this heading">#</a></h3>
+<p>You can install multiple versions of Python either through the store or from python.org (and other ways).
+I currently have versions 3.10, 3.11, and 3.12 installed from python.org.</p>
+<p>To use a specific version, I can specifically type the version:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%&gt;<span class="w"> </span>python3.11<span class="w"> </span>--version<span class="w"> </span>
+</pre></div>
+</div>
+<p>That only works if I have my PATH setup with all versions of Python, which I don’t.</p>
+<p>I do however have <code class="docutils literal notranslate"><span class="pre">py.exe</span></code> on my PATH.
+And because I’ve installed all my Python versions from python.org, <code class="docutils literal notranslate"><span class="pre">py.exe</span></code> knows about them all.
+And I think <code class="docutils literal notranslate"><span class="pre">py.exe</span></code> is only installed from python.org, but not sure.
+That is, if you’ve installed Python from the Windows Store and don’t have <code class="docutils literal notranslate"> <span class="pre">py.exe</span></code>, that might be why.</p>
+<p>I can list all the versions <code class="docutils literal notranslate"><span class="pre">py.exe</span></code> knows of:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PS<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\j</span>oeld&gt;<span class="w"> </span>py<span class="w"> </span>--list
+<span class="w"> </span>-V:3.12<span class="w"> </span>*<span class="w">        </span>Python<span class="w"> </span><span class="m">3</span>.12<span class="w"> </span><span class="o">(</span><span class="m">64</span>-bit<span class="o">)</span>
+<span class="w"> </span>-V:3.11<span class="w">          </span>Python<span class="w"> </span><span class="m">3</span>.11<span class="w"> </span><span class="o">(</span><span class="m">64</span>-bit<span class="o">)</span>
+<span class="w"> </span>-V:3.10<span class="w">          </span>Python<span class="w"> </span><span class="m">3</span>.10<span class="w"> </span><span class="o">(</span><span class="m">64</span>-bit<span class="o">)</span>
+</pre></div>
+</div>
+<p>And I can run a specific version
+(NOTE: the argument <code class="docutils literal notranslate"><span class="pre">--version</span> </code> on the command line is to tell the Python interpreter to print its version string.
+It’s an easy way to check if your PATH is correct and your interpreter actually runs.):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PS<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\j</span>oeld&gt;<span class="w"> </span>py<span class="w"> </span>-3.11<span class="w"> </span>--version
+Python<span class="w"> </span><span class="m">3</span>.11.5
+</pre></div>
+</div>
+</section>
+</section>
+<section id="powershell-and-always-use-a-virtual-environment">
+<h2>PowerShell and Always Use a Virtual Environment<a class="headerlink" href="#powershell-and-always-use-a-virtual-environment" title="Link to this heading">#</a></h2>
+<section id="the-command-line">
+<h3>The Command Line<a class="headerlink" href="#the-command-line" title="Link to this heading">#</a></h3>
+<p>I’ve always been more comfortable in a command line environment.
+And now, as a blind developer, I like the accessibility of the command line.
+On Windows, I use PowerShell, currently on version 7.3.9.
+I recall there was already some kind of PowerShell available when I installed Windows 10 the first time, that’s not the right one.
+Windows 11 might already come with PowerShell 7.  If not, install it from Microsoft.</p>
+<p>The following commands for creating an development environment are all run from a PowerShell prompt (though I edited the prefix)</p>
+</section>
+<section id="creating-the-virtual-environment">
+<h3>Creating the Virtual Environment<a class="headerlink" href="#creating-the-virtual-environment" title="Link to this heading">#</a></h3>
+<p>Here is a
+<a class="reference external" href="https://realpython.com/python-virtual-environments-a-primer/">great article on virtual environments</a>.
+I highly suggest you read it to understand how Python knows which files to install from where.
+(RealPython is one of the Python sites I trust for very good explanations.)</p>
+<p>If I want to develop or test something using Python 3.10,
+I’ll start by creating a virtual environment (plus some other steps):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tmp&gt;<span class="w"> </span>mkdir<span class="w"> </span>py3.10-project
+<span class="o">[</span>edited<span class="w"> </span>output<span class="o">]</span>
+tmp&gt;<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>py3.10-project
+tmp<span class="se">\p</span>y3.10-project&gt;<span class="w"> </span>py<span class="w"> </span>-3.10<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>--prompt<span class="w"> </span><span class="m">3</span>.10project<span class="w"> </span>.venv
+tmp<span class="se">\p</span>y3.10-project&gt;<span class="w"> </span>./.venv/scripts/activate
+<span class="o">(</span><span class="m">3</span>.10project<span class="o">)</span><span class="w"> </span>tmp<span class="se">\p</span>y3.10-project&gt;<span class="w"> </span>python<span class="w"> </span>--version
+Python<span class="w"> </span><span class="m">3</span>.10.11
+<span class="o">(</span><span class="m">3</span>.10project<span class="o">)</span><span class="w"> </span>tmp<span class="se">\p</span>y3.10-project&gt;<span class="w"> </span>where.exe<span class="w"> </span>python
+C:<span class="se">\U</span>sers<span class="se">\j</span>oeld<span class="se">\t</span>mp<span class="se">\p</span>y3.10-project<span class="se">\.</span>venv<span class="se">\S</span>cripts<span class="se">\p</span>ython.exe
+C:<span class="se">\P</span>rogram<span class="w"> </span>Files<span class="se">\P</span>ython311<span class="se">\p</span>ython.exe
+C:<span class="se">\U</span>sers<span class="se">\j</span>oeld<span class="se">\A</span>ppData<span class="se">\L</span>ocal<span class="se">\P</span>rograms<span class="se">\P</span>ython<span class="se">\P</span>ython312<span class="se">\p</span>ython.exe
+C:<span class="se">\U</span>sers<span class="se">\j</span>oeld<span class="se">\A</span>ppData<span class="se">\L</span>ocal<span class="se">\P</span>rograms<span class="se">\P</span>ython<span class="se">\P</span>ython310<span class="se">\p</span>ython.exe
+C:<span class="se">\U</span>sers<span class="se">\j</span>oeld<span class="se">\A</span>ppData<span class="se">\L</span>ocal<span class="se">\M</span>icrosoft<span class="se">\W</span>indowsApps<span class="se">\p</span>ython.exe
+</pre></div>
+</div>
+<p>Let’s go over what just happened:</p>
+<ol class="arabic simple">
+<li><p>created a new directory for the project and cd into it</p></li>
+<li><p>created a virtual environment using <code class="docutils literal notranslate"><span class="pre">py</span></code> to specify I want to run python version 3.10</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-m</span> <span class="pre">venv</span></code> is to run the venv module which is now included in the standard cPython distribution</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--prompt</span> <span class="pre">3.10project</span></code> is to specify a prompt for this virtual environment</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.venv</span></code> is to have the virtual environment created in a directory named .venv</p></li>
+</ul>
+</li>
+<li><p>I activate the environment by running the activate script in the new virtual environment</p>
+<ul class="simple">
+<li><p>Notice after this the command line prompt has changed to include ‘(3.10project)’</p></li>
+</ul>
+</li>
+<li><p>Now that I’m in the activated virtual environment, <code class="docutils literal notranslate"><span class="pre">python</span></code> refers to the version of Python used to create the virtual environment</p>
+<ul class="simple">
+<li><p>ran <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">--version</span></code> to show this</p></li>
+</ul>
+</li>
+<li><p>where.exe shows everywhere on your PATH the specified program exists</p>
+<ul class="simple">
+<li><p>notice python in our new virtual environment is the first one, that’s good</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="launching-vs-code">
+<h3>Launching VS Code<a class="headerlink" href="#launching-vs-code" title="Link to this heading">#</a></h3>
+<p>Now that we have an activated virtual environment, let’s start VS Code.
+From the command prompt, simply type:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span><span class="m">3</span>.10project<span class="o">)</span><span class="w"> </span>tmp<span class="se">\p</span>y3.10-project&gt;<span class="w"> </span>code<span class="w"> </span>.
+</pre></div>
+</div>
+<p>That is, <code class="docutils literal notranslate"><span class="pre">code</span></code> is the program name and <code class="docutils literal notranslate"><span class="pre">.</span></code> (dot) is the directory to open.
+(The dot (period character) always represents the current directory.)
+The VS Code UI will open ready to edit files in that directory.</p>
+</section>
+</section>
+<section id="tell-vs-code-which-python-to-use">
+<h2>Tell VS Code which Python to use<a class="headerlink" href="#tell-vs-code-which-python-to-use" title="Link to this heading">#</a></h2>
+<p>We’ll use the command pallet for this, and the shortcut keys to get there.</p>
+<p>Assuming you’ve installed the Microsoft Python extension already,
+type <code class="docutils literal notranslate"> <span class="pre">ctrl+shift+p</span></code> to bring up the command pallet.
+You’ll be automatically in the search field.
+Type ‘select python interpreter’ and you should be on the command.
+The number of matches is filtered as you type, you probably will not need to type all three words.
+Hit enter and you should get a list of available python environments.</p>
+<p>If you launched VS Code from within an activated virtual environment,
+the python interpreter from the .venv environment should already be selected.
+And you can simply hit enter to keep that choice.
+Otherwise, you can arrow up and down to select the appropriate interpreter.</p>
+</section>
+<section id="edit-and-run-your-python-files">
+<h2>Edit and Run Your Python Files<a class="headerlink" href="#edit-and-run-your-python-files" title="Link to this heading">#</a></h2>
+<p>Now you can create your hellow_world.py file in VS Code.
+You can run the file directly in VS Code, and there is a terminal that is accessible.
+I’m not a big fan of that workflow though.
+I like to edit the code then pop back out to my PowerShell to run the code.
+That is, <code class="docutils literal notranslate"><span class="pre">alt+tab</span></code> to get back to your PowerShell window, then:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span><span class="m">3</span>.10project<span class="o">)</span><span class="w"> </span>tmp<span class="se">\p</span>y3.10-project<span class="w"> </span>&gt;<span class="w"> </span>python<span class="w"> </span>hello_world.py<span class="w"> </span>
+</pre></div>
+</div>
+<p>And you should see any output in that window (like we did when creating the virtual environment).</p>
+<p>Ken noted you can also use <code class="docutils literal notranslate"><span class="pre">ctrl+shift+c</span></code> to have VS Code open a command shell using it’s current working directory.
+If you had opened VS Code as described above, that should be the directory with your source code.
+Ken also noted you can change the default shell from <code class="docutils literal notranslate"><span class="pre">sh</span></code> to something else, e.g.e, PowerShell.
+That’s done in the settings which can take some getting used to.
+Instead of trying to explain it here, I suggest you bing it.</p>
+</section>
+<section id="i-think-that-s-it">
+<h2>I Think That’s It<a class="headerlink" href="#i-think-that-s-it" title="Link to this heading">#</a></h2>
+<p>Hopefully this gets you started with a basic environment and understanding to build from.
+If you have questions, or want more details, please open an issue at the
+<a class="reference external" href="https://github.com/joeldodson/codinginblind/issues">the codinginblind repo</a>.</p>
+<p>Cheers!</p>
+<p>Joel</p>
+</section>
+<section id="credits">
+<h2>Credits<a class="headerlink" href="#credits" title="Link to this heading">#</a></h2>
+<p>I’ll add notes here to give credit to people who help make this better and correct my mistakes.</p>
+<ul class="simple">
+<li><p>Thanks Ken for pointing out the alt-f4 which should be alt-tab
+(already fixed if you don’t see any alt-f4 in the text.)
+And thanks for the ctrl+shift+c shortcut reminder.</p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="learning_narrator.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Learning Narrator</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="python_python3.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Python and Python3</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+        <div class="footer-item"><p class="last-updated">
+  Last updated on Sep 01, 2025.
+  <br/>
+</p></div>
+      
+    </div>
+  
+  
+</div>
+
+  </footer>
+  </body>
+</html>

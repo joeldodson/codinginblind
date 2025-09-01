@@ -1,0 +1,553 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Learning Narrator &#8212; Coding In Blind</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'articles/learning_narrator';</script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Getting Started with Python on Windows" href="getting_started_with_python.html" />
+    <link rel="prev" title="List of Articles" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1" />
+    <meta name="docbuild:last-update" content="Sep 01, 2025"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Coding In Blind</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Articles
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../about.html">
+    About
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/joeldodson/codinginblind" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Articles
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../about.html">
+    About
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/joeldodson/codinginblind" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting Started</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#microsoft-s-official-online-documentation">Microsoft’s Official Online Documentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-necessary-keyboard-shortcuts">First, Necessary Keyboard Shortcuts</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#turning-on-and-off-narrator-windowskey-ctrl-enter">Turning on and off Narrator: <code class="docutils literal notranslate"><span class="pre">windowsKey+ctrl+enter</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#narrator-modifier-key-capslock-and-insert">Narrator Modifier Key: <code class="docutils literal notranslate"><span class="pre">capsLock</span></code> and <code class="docutils literal notranslate"><span class="pre">insert</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-voice-speed-capslock-minus-capslock-plus">Changing Voice Speed: <code class="docutils literal notranslate"><span class="pre">capsLock+minus</span></code>, <code class="docutils literal notranslate"><span class="pre">capsLock+plus</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#speech-history-capslock-x-capslock-ctrl-x-capslock-alt-x">Speech History: <code class="docutils literal notranslate"><span class="pre">capsLock+x</span></code>, <code class="docutils literal notranslate"><span class="pre">capsLock+ctrl+x</span></code>, <code class="docutils literal notranslate"><span class="pre">capsLock+alt+x</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#narrator-home">Narrator Home</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#give-feedback-capslock-alt-f">Give Feedback: <code class="docutils literal notranslate"><span class="pre">capsLock+alt+f</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-windowskey-ctrl-n">configuration: <code class="docutils literal notranslate"><span class="pre">windowsKey+ctrl+n</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#start-narrator-before-and-after-sign-on">Start Narrator Before and After Sign On</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#and-the-usual-suspects">And the Usual Suspects</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references-for-more-learning">References for More Learning</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#keyboard-shortcuts-for-help">Keyboard Shortcuts for Help</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#links-to-microsoft-resources-for-keyboard-shortcuts">Links to Microsoft Resources for Keyboard Shortcuts</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#and-now-using-narrator">And Now, Using Narrator</a></li>
+</ul>
+  </nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none"></div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="learning-narrator">
+<h1>Learning Narrator<a class="headerlink" href="#learning-narrator" title="Link to this heading">#</a></h1>
+<p>For several years now, Microsoft has been showing Narrator some love.
+It’s getting to the point of being a real option for your daily driver.
+At the very least, it’s a great option for getting unstuck when you run into problems while using other screen readers on Windows.
+In this article we’ll go through some of the basics and highlight some useful references for later.</p>
+<p>If you are brand new to screen readers, this might not be the best resource to get started.
+Hopefully you have access to a blindness organization to help learning some basics.
+Once you have some screen reader fundamentals down, this resource should be at a good level of depth to get going with Narrator.</p>
+<p>Before jumping into using Narrator to get around Windows and interact with various applications,
+let’s go over some basics.</p>
+<section id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading">#</a></h2>
+<section id="microsoft-s-official-online-documentation">
+<h3>Microsoft’s Official Online Documentation<a class="headerlink" href="#microsoft-s-official-online-documentation" title="Link to this heading">#</a></h3>
+<p>IN the interest of teaching to fish (not giving out fish), the most important link you should know is
+<a class="reference external" href="https://support.microsoft.com/en-us/windows/complete-guide-to-narrator-e4397a0d-ef4f-b386-d8ae-c172f109bdb1">Microsoft support’s Introduction to Narrator</a></p>
+<p>That page has two important areas, a table of contents with links and descriptions to chapters, followed by highlights of what’s new in the latest release.
+And it is well structured with semantic HTML.</p>
+<p>If you want the table of contents, find the first HTML table then navigate by links to get to each chapter.
+Following the table of contents, Each main feature in what’s new is summarized under an HTML level 2 heading.</p>
+</section>
+<section id="first-necessary-keyboard-shortcuts">
+<h3>First, Necessary Keyboard Shortcuts<a class="headerlink" href="#first-necessary-keyboard-shortcuts" title="Link to this heading">#</a></h3>
+<p>My first thought when learning a new screen reader is how do I speed up the voice.
+But first, how to even get started.</p>
+<section id="turning-on-and-off-narrator-windowskey-ctrl-enter">
+<h4>Turning on and off Narrator: <code class="docutils literal notranslate"><span class="pre">windowsKey+ctrl+enter</span></code><a class="headerlink" href="#turning-on-and-off-narrator-windowskey-ctrl-enter" title="Link to this heading">#</a></h4>
+<p>The keyboard command <code class="docutils literal notranslate"><span class="pre">windowsKey+ctrl+enter</span></code> toggles Narrator on and off.
+That is technically a shortcut that can be disabled.
+My experience though, especially at Costco and Best Buy, is that shortcut is enabled by default.</p>
+<p>You can also exit Narrator with <code class="docutils literal notranslate"><span class="pre">narratorKey+esc</span></code>.
+I have no idea why there is a separate way to exit.</p>
+</section>
+<section id="narrator-modifier-key-capslock-and-insert">
+<h4>Narrator Modifier Key: <code class="docutils literal notranslate"><span class="pre">capsLock</span></code> and <code class="docutils literal notranslate"><span class="pre">insert</span></code><a class="headerlink" href="#narrator-modifier-key-capslock-and-insert" title="Link to this heading">#</a></h4>
+<p>Both the <code class="docutils literal notranslate"><span class="pre">insert</span></code> key and <code class="docutils literal notranslate"><span class="pre">capsLock</span></code> can be used as modifiers for Narrator.
+As far as I know, the <code class="docutils literal notranslate"><span class="pre">capsLock</span></code> behaves identically to the <code class="docutils literal notranslate"><span class="pre">insert</span></code> key.
+That’s how NVDA works as well;
+in either laptop or desktop mode, the <code class="docutils literal notranslate"><span class="pre">capsLock</span></code> works identically to the <code class="docutils literal notranslate"><span class="pre">insert</span></code> key.
+In JAWS, on my 15 inch laptop with a full keyboard (including num pad),
+I found by configuring JAWS to use a desktop keyboard, and enabling <code class="docutils literal notranslate"><span class="pre">capsLock</span></code> as the JAWS key, there were slight functional differences between <code class="docutils literal notranslate"><span class="pre">capsLock</span></code> and <code class="docutils literal notranslate"><span class="pre">insert</span></code>.</p>
+<p>For simplicity, two versus four syllables, and less typing, I’ll use the term <code class="docutils literal notranslate"><span class="pre">capsLock</span></code> when referring to the Narrator modifier key.</p>
+</section>
+<section id="changing-voice-speed-capslock-minus-capslock-plus">
+<h4>Changing Voice Speed: <code class="docutils literal notranslate"><span class="pre">capsLock+minus</span></code>, <code class="docutils literal notranslate"><span class="pre">capsLock+plus</span></code><a class="headerlink" href="#changing-voice-speed-capslock-minus-capslock-plus" title="Link to this heading">#</a></h4>
+<p>The “minus” and “plus” are technically the hyphen and equals keys to the right of the 0 key near the top of the keyboard, below the function keys.
+The increase/decrease voice speed is documented as <code class="docutils literal notranslate"><span class="pre">ctrl++</span></code> and <code class="docutils literal notranslate"><span class="pre">ctrl+-</span></code>.
+There is no need to hold down the shift key though to get the plus sign, it’s simply an easy way to label that key.
+If you have a keyboard with a num pad, the num pad plus and minus keys do not alter voice playback speed.</p>
+</section>
+<section id="speech-history-capslock-x-capslock-ctrl-x-capslock-alt-x">
+<h4>Speech History: <code class="docutils literal notranslate"><span class="pre">capsLock+x</span></code>, <code class="docutils literal notranslate"><span class="pre">capsLock+ctrl+x</span></code>, <code class="docutils literal notranslate"><span class="pre">capsLock+alt+x</span></code><a class="headerlink" href="#speech-history-capslock-x-capslock-ctrl-x-capslock-alt-x" title="Link to this heading">#</a></h4>
+<p>Following are shortcuts to quickly access the last spoken phrase, copy that to the copy and paste buffer, and to enter a buffer containing the last 500 spoken phrases.</p>
+<ul class="simple">
+<li><p><strong>repeat last spoken phrase: <code class="docutils literal notranslate"><span class="pre">capsLock+x</span></code></strong></p></li>
+<li><p><strong>copy last spoken phrase: <code class="docutils literal notranslate"><span class="pre">capsLock+ctrl+x</span></code></strong></p></li>
+<li><p><strong>enter buffer with last 500 spoken phrases: <code class="docutils literal notranslate"><span class="pre">capsLock+alt+x</span></code></strong> -
+You can move around this buffer in the same way you’d move around a text document,
+including the same commands to highlight and copy text.</p></li>
+</ul>
+</section>
+</section>
+<section id="narrator-home">
+<h3>Narrator Home<a class="headerlink" href="#narrator-home" title="Link to this heading">#</a></h3>
+<p>The first time you start Narrator, you’ll be presented with the Narrator Home screen.
+Home gives access to a quick start guide, what’s new section, the feedback form, online documentation, and some basic configuration settings.
+There is a checkbox to disable showing Narrator home when Narrator starts.
+You can access Narrator Home through Narrator settings, don’t fear you’ll be missing something if you disable it on startup.</p>
+</section>
+<section id="give-feedback-capslock-alt-f">
+<h3>Give Feedback: <code class="docutils literal notranslate"><span class="pre">capsLock+alt+f</span></code><a class="headerlink" href="#give-feedback-capslock-alt-f" title="Link to this heading">#</a></h3>
+<p>You can access the feedback form at any time using the keyboard shortcut, you don’t have to go through Narrator Home.</p>
+</section>
+<section id="configuration-windowskey-ctrl-n">
+<h3>configuration: <code class="docutils literal notranslate"><span class="pre">windowsKey+ctrl+n</span></code><a class="headerlink" href="#configuration-windowskey-ctrl-n" title="Link to this heading">#</a></h3>
+<p>This will launch you into the accessibility settings.
+Many of the settings are collapsed by default.
+pay close attention to “show more” buttons, what you’re looking for might be buried deeper in those settings.</p>
+<section id="start-narrator-before-and-after-sign-on">
+<h4>Start Narrator Before and After Sign On<a class="headerlink" href="#start-narrator-before-and-after-sign-on" title="Link to this heading">#</a></h4>
+<p>The very first show more button exposes the check boxes to have Narrator started automatically before sign on and after sign on.
+If Narrator is your daily driver, you probably want to check both of these boxes.</p>
+</section>
+<section id="and-the-usual-suspects">
+<h4>And the Usual Suspects<a class="headerlink" href="#and-the-usual-suspects" title="Link to this heading">#</a></h4>
+<p>And of course you can change the voice synthesizer, download new voices, change verbosity, configure braille, and so on.
+It’s probably a better use of your time to go through the settings than read about them here.</p>
+</section>
+</section>
+<section id="references-for-more-learning">
+<h3>References for More Learning<a class="headerlink" href="#references-for-more-learning" title="Link to this heading">#</a></h3>
+<p>Continuing the teaching to fish metaphor, telling learners where they are likely to find fish is a key element to a successful fishing career.
+Following are keyboard shortcuts and links useful when trying to remember a certain function, or wanting to discover more features.</p>
+<section id="keyboard-shortcuts-for-help">
+<h4>Keyboard Shortcuts for Help<a class="headerlink" href="#keyboard-shortcuts-for-help" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>input learning (keyboard input help): <code class="docutils literal notranslate"><span class="pre">capsLock+1</span></code></strong> -
+This is a great way to explore keyboard shortcuts and probably familiar to users of other screen readers.
+It puts you in a mode where everything you type is captured by the screen reader.
+If what you type is a screen reader command, you will hear what that command is.
+You must type <code class="docutils literal notranslate"><span class="pre">capsLock+1</span></code> again to exit this mode.</p></li>
+<li><p><strong>all commands search: <code class="docutils literal notranslate"><span class="pre">capsLock+f1</span></code></strong> - list of all available keyboard commands.
+drops you initially into a search box.
+Try typing in words to describe what you’re trying to do, for example, “increase”,
+will narrow down the list of commands related to increasing something (e.g., voice volume or speed)
+press escape key to exit.</p></li>
+<li><p><strong>available item command help: <code class="docutils literal notranslate"><span class="pre">capsLock+f2</span></code></strong> - simlar to <code class="docutils literal notranslate"><span class="pre">capsLock+f1</span></code> but limited to commands relevant to the item with focus.
+Also puts you in search box initially.
+Press escape key to exit.</p></li>
+</ul>
+</section>
+<section id="links-to-microsoft-resources-for-keyboard-shortcuts">
+<h4>Links to Microsoft Resources for Keyboard Shortcuts<a class="headerlink" href="#links-to-microsoft-resources-for-keyboard-shortcuts" title="Link to this heading">#</a></h4>
+<p>Here is where the fish are really biting…</p>
+<p>I’ll occasionally spend time going through lists of keyboard commands.
+I find it a good way to refresh my memory as well s find functionality I didn’t know, or forgot, exists.
+Here are some links I find useful.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://support.microsoft.com/en-us/windows/appendix-b-narrator-keyboard-commands-and-touch-gestures-8bdab3f4-b3e9-4554-7f28-8b15bd37410a">Narrator keyboard commands and touch gestures</a> -
+The page has well structured, semantic HTML.
+You can navigate by headings or tables and quickly find commands grouped by functionality.
+It has both standard and legacy keyboard commands.
+I highly recommend going with the standard layout especially if you’re getting started.
+If you have experience with other screen readers, the standard commands will be very familiar.</p></li>
+<li><p><a class="reference external" href="https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec">Windows Keyboard Shortcuts</a> -
+This has everything you can imagine.
+The HTML tables are hidden in collapsed regions.
+You can navigate by heading or button to find a topic, then press the button and a table will be revealed.</p></li>
+<li><p><a class="reference external" href="https://support.microsoft.com/en-us/windows/windows-keyboard-shortcuts-for-accessibility-021bcb62-45c8-e4ef-1e4f-41b8c1fc87fd">Windows Keyboard Shortcuts for Accessibility</a> -
+Good semantic HTML with headings and tables (not in collapsed regions).
+Good sections on Windows Magnifier, followed by a more generic accessibility section.</p></li>
+<li><p><a class="reference external" href="https://support.microsoft.com/en-us/office/keyboard-shortcuts-in-microsoft-365-e765366f-24fc-4054-870d-39b214f223fd">Keyboard Shortcuts for Office 365</a> -
+Don’t look for the shortcuts on this page, it has links to various products (e.g., Outlook, Word, Teams).</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="and-now-using-narrator">
+<h2>And Now, Using Narrator<a class="headerlink" href="#and-now-using-narrator" title="Link to this heading">#</a></h2>
+<p>We know how to start and stop Narrator, where to configure it, some useful keyboard shortcuts, and where to find more information.
+Let’s learn how to use it.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">List of Articles</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="getting_started_with_python.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Getting Started with Python on Windows</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+        <div class="footer-item"><p class="last-updated">
+  Last updated on Sep 01, 2025.
+  <br/>
+</p></div>
+      
+    </div>
+  
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,453 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Python and Python3 &#8212; Coding In Blind</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'articles/python_python3';</script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Very Basics of Virtual Environments" href="very_basic_venv.html" />
+    <link rel="prev" title="Getting Started with Python on Windows" href="getting_started_with_python.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1" />
+    <meta name="docbuild:last-update" content="Sep 01, 2025"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Coding In Blind</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Articles
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../about.html">
+    About
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/joeldodson/codinginblind" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Articles
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../about.html">
+    About
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/joeldodson/codinginblind" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#backward-compatibility">Backward Compatibility</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-python-3-not-backward-compatible">Why is Python 3 not Backward Compatible?</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-good-news">The Good News</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-not-settle-on-the-command-python-now">Why Not Settle on the Command <code class="docutils literal notranslate"><span class="pre">python</span></code> Now?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#can-i-configure-python-to-also-run-python3">Can I Configure <code class="docutils literal notranslate"><span class="pre">python</span></code> to also run <code class="docutils literal notranslate"><span class="pre">python3</span></code>?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-windows-tell-me-to-go-to-the-store">Why does Windows tell me to go to the store?</a></li>
+</ul>
+  </nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none"></div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="python-and-python3">
+<h1>Python and Python3<a class="headerlink" href="#python-and-python3" title="Link to this heading">#</a></h1>
+<p>Here is a very brief description why you type <code class="docutils literal notranslate"><span class="pre">python</span></code> or <code class="docutils literal notranslate"><span class="pre">python3</span></code> at the command line.</p>
+<section id="backward-compatibility">
+<h2>Backward Compatibility<a class="headerlink" href="#backward-compatibility" title="Link to this heading">#</a></h2>
+<p>You need to understand this term to appreciate the issue between the commands <code class="docutils literal notranslate"><span class="pre">python</span></code> and <code class="docutils literal notranslate"><span class="pre">python3</span></code>.</p>
+<p>To say python version X is fully backward compatible means all python programs written for python versions less than X will work with python version X.</p>
+<p>This is not the case between python versions 2 and 3.</p>
+</section>
+<section id="why-is-python-3-not-backward-compatible">
+<h2>Why is Python 3 not Backward Compatible?<a class="headerlink" href="#why-is-python-3-not-backward-compatible" title="Link to this heading">#</a></h2>
+<p>There is no lack of information regarding the decision to break backward compatibility with python3.  Here are two articles from highly regarded voices in the Python community:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://python-notes.curiousefficiency.org/en/latest/python3/questions_and_answers.html">Python 3 Q &amp; A - Nick Coghlan’s Python Notes</a>,</p></li>
+<li><p><a class="reference external" href="https://snarky.ca/why-python-3-exists/">Why Python 3 exists - Brett Cannon</a></p></li>
+</ul>
+<p>If you’re at the very beginning of learning to program and/or brand new to Python, you might want to simply accept that python 3 is not backward compatible and move on.
+There’s some great details, and history in those articles though, they’re interesting for many reasons.</p>
+<section id="the-good-news">
+<h3>The Good News<a class="headerlink" href="#the-good-news" title="Link to this heading">#</a></h3>
+<p>Python 3 was initially released in December, 2008, and python 2 support officially ended in January 2020.
+Unless you’re maintaining old Python code, you really don’t need to know any details other than you might need to run <code class="docutils literal notranslate"><span class="pre">python3</span></code> instead of <code class="docutils literal notranslate"><span class="pre">python</span></code>.</p>
+<p>If you’re considering using a module that still doesn’t support Python version 3,
+you’re almost certainly asking for extra work.
+And that module is out dated and likely no longer maintained.</p>
+</section>
+</section>
+<section id="why-not-settle-on-the-command-python-now">
+<h2>Why Not Settle on the Command <code class="docutils literal notranslate"><span class="pre">python</span></code> Now?<a class="headerlink" href="#why-not-settle-on-the-command-python-now" title="Link to this heading">#</a></h2>
+<p>Python was around for many hears before version 3 stirred the pot.
+Thus there are probably millions of lines of Python version 2 code still running in the wild.
+If a system still has Python version 2 code, scripts running that code will be using the command <code class="docutils literal notranslate"><span class="pre">python</span></code>.
+If the <code class="docutils literal notranslate"><span class="pre">python</span></code> command runs Python version 3, the scripts will most likely fail.</p>
+<p>Now, consider needing to update a system that has Python version 2 scripts.
+It’s highly unlikely you can update all those scripts at one time.
+This puts you in a position to need both <code class="docutils literal notranslate"><span class="pre">python</span></code> and <code class="docutils literal notranslate"><span class="pre">python3</span></code> on the same system.
+Which also puts you in the position of having the command <code class="docutils literal notranslate"><span class="pre">python3</span></code> embedded in some of your system scripts.</p>
+<p>Now you’ve completed the migration of your version 2 code to version 3,
+you can get rid of the <code class="docutils literal notranslate"><span class="pre">python</span></code> command.
+However, you still have the <code class="docutils literal notranslate"><span class="pre">python3</span></code> command in your system scripts.
+Thus you need to continue to support <code class="docutils literal notranslate"><span class="pre">python3</span></code> as the command to run Python version 3.</p>
+</section>
+<section id="can-i-configure-python-to-also-run-python3">
+<h2>Can I Configure <code class="docutils literal notranslate"><span class="pre">python</span></code> to also run <code class="docutils literal notranslate"><span class="pre">python3</span></code>?<a class="headerlink" href="#can-i-configure-python-to-also-run-python3" title="Link to this heading">#</a></h2>
+<p>If you’re absolutely sure there is nothing on your system expecting the command <code class="docutils literal notranslate"><span class="pre">python</span></code> to be Python version 2,
+you can create an alias, or whatever the configuration is on your system,
+for <code class="docutils literal notranslate"><span class="pre">python</span></code> to be Python version 3.</p>
+<p>If your system came with Python version 2 already installed as <code class="docutils literal notranslate"><span class="pre">python</span></code>, you’ll almost certainly break something if you globally change <code class="docutils literal notranslate"><span class="pre">python</span></code> to run version 3.</p>
+</section>
+<section id="why-does-windows-tell-me-to-go-to-the-store">
+<h2>Why does Windows tell me to go to the store?<a class="headerlink" href="#why-does-windows-tell-me-to-go-to-the-store" title="Link to this heading">#</a></h2>
+<p>If you run ‘’’python’’’ or ‘’’python3’’’ from a command line on Windows, you’ll probably get a popup or message of some sort linking you to the Windows store.
+I strongly encourage you to ignore that and go read my article on
+<a class="reference internal" href="getting_started_with_python.html"><span class="std std-doc">Getting Started with Python</span></a>.
+It will point you to <a class="reference external" href="https://python.org">the main python website (python.org)</a>
+and tell you how to download and install an official version of Python.
+The Windows store is also an official version, but python.org is going directly to the source and will be the first to have the recent version.
+Plus, as far as I’m concerned, the Windows store is a crap show of frustration.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="getting_started_with_python.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Getting Started with Python on Windows</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="very_basic_venv.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Very Basics of Virtual Environments</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+        <div class="footer-item"><p class="last-updated">
+  Last updated on Sep 01, 2025.
+  <br/>
+</p></div>
+      
+    </div>
+  
+  
+</div>
+
+  </footer>
+  </body>
+</html>
